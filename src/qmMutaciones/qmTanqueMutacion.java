@@ -1,7 +1,4 @@
 package qmMutaciones;
-
-import qmFanerozoico.qmHagfishes;
-
 public class qmTanqueMutacion {
 
     private String qmSuApellido;
