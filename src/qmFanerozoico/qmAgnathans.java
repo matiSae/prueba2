@@ -4,8 +4,11 @@ import qmProterozoico.qmGnathostomata;
 
 public class qmAgnathans extends qmGnathostomata {
 
-    public qmAgnathans() {
-        super("Agnathans");
+    public qmAgnathans(String  qmNombreClase) {
+        super(qmNombreClase);
+    }
+    public void qmSaludar(){
+        System.out.println( getNombreClase()+" saluda a todos");
     }
 
     @Override

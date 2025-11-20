@@ -12,7 +12,8 @@ public class qmControllerSisInformatico {
 
         Scanner sc = new Scanner(System.in);
         boolean salir=true;
-        String apellido;
+        String apellido,nombre;
+
         System.out.println("=== SISTEMA DE MUTACIÓN BIOLÓGICA ===");
         do{
             salir=false;
@@ -32,9 +33,9 @@ public class qmControllerSisInformatico {
 
         qmTanqueMutacion tanque = new qmTanqueMutacion(apellido);
 
-        qmGnathostomata gna = new qmGnathostomata("Gnathostomata");
-        qmAgnathans agna = new qmAgnathans();
-        qmHagfishes hag = new qmHagfishes();
+        qmGnathostomata gna = new qmGnathostomata("Pepito");
+        qmAgnathans agna = new qmAgnathans("Pepito");
+        qmHagfishes hag = new qmHagfishes("Pepito","Rojo",2.5);
 
         gna.qmMostrarJerarquia();
         agna.qmMostrarJerarquia();
@@ -58,5 +59,23 @@ public class qmControllerSisInformatico {
             System.out.println();
             System.out.println("Nueva especie creada: " + nuevaEspecie);
         }
+        System.out.println();
+        agna.qmSaludar();
+        do{
+            System.out.print("Ingresa tu nombre: ");
+            nombre=sc.nextLine();
+             salir = true;
+                for (int i = 0; i < nombre.length(); i++) {
+                    if (Character.isDigit(nombre.charAt(i))) {
+                        salir = false;
+                        break;
+                    }
+                }
+                if (!salir) {
+                    System.out.println("Error: no ingrese numeros ");
+                }
+        }while(!salir);
+        hag.qmSaludar(nombre);
+        System.out.println("Gracias por usar el programa");
     }
 }

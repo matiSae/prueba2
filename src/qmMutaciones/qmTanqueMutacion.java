@@ -40,7 +40,7 @@ public class qmTanqueMutacion {
             + radonActual + " de " + radonTotal + " (mSv)"
         );
     }
-
+    //Refactorizacion
     private void qmMostrarCargaMutacion(String nombre, int tabs){
 
         char[] signos = {'|', '/', '-', '\\'};

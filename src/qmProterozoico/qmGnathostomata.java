@@ -10,9 +10,10 @@ public class qmGnathostomata {
 
     public void qmMostrarJerarquia() {
         System.out.println("ARBOL FILOGENÉTICO");
-        qmMostrarCarga(qmNombreClase, 4);
+        qmMostrarCarga("Gnathostomata", 4);
     }
 
+    //Refactorizacion
     protected void qmMostrarCarga(String nombre, int tabs) {
 
         char[] signos = {'|', '/', '-', '\\'};
@@ -32,6 +33,7 @@ public class qmGnathostomata {
         }
         System.out.println(); 
     }
+    //
 
     public String getNombreClase() {
         return qmNombreClase;
