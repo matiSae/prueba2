@@ -8,6 +8,6 @@ public class qmHagfishes extends qmAgnathans {
 
     @Override
     public void qmMostrarJerarquia() {
-        qmMostrarCarga("Hagfishes", 6);
+        qmMostrarCarga("Hagfishes", 10);
     }
 }

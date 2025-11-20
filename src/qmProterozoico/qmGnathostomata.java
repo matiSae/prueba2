@@ -9,6 +9,7 @@ public class qmGnathostomata {
     }
 
     public void qmMostrarJerarquia() {
+        System.out.println("ARBOL FILOGENÉTICO");
         qmMostrarCarga(qmNombreClase, 4);
     }
 
@@ -24,7 +25,7 @@ public class qmGnathostomata {
             System.out.print("\r" + signos[signoIndex] + " " + i + "% " + guiones + " " + nombre);
 
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }

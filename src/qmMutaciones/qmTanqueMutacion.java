@@ -5,7 +5,6 @@ import qmFanerozoico.qmHagfishes;
 public class qmTanqueMutacion {
 
     private String qmSuApellido;
-    private String especieMutada = null;
 
     public qmTanqueMutacion(String qmSuApellido){
         this.qmSuApellido = qmSuApellido;
@@ -18,49 +17,45 @@ public class qmTanqueMutacion {
     public String qmMutar(String qmSuAnimal){
 
         if(qmPuedeMutar(qmSuAnimal)){
-            especieMutada = "Hagfishes" + qmSuApellido;
-            System.out.println("Mutación exitosa: " + especieMutada);
-            return especieMutada;
+            String nuevaEspecie = "Hagfishes" + qmSuApellido;
+            System.out.println("Mutación exitosa: " + nuevaEspecie);
+            return nuevaEspecie;
         }
 
         System.out.println("Mutación fallida.");
         return null;
     }
 
-    public void qmMostrarJerarquia(){
-
-        qmHagfishes base = new qmHagfishes();
-
-        base.qmMostrarJerarquia();
+    public void qmMostrarJerarquia(String especieMutada){
 
         if(especieMutada != null){
-            mostrarCargaMutacion(especieMutada, 7);
+            qmMostrarCargaMutacion(especieMutada, 15);
         }
     }
+
     public void qmMenuProcesomSv(){
 
-    int radonTotal = (int)(Math.random() * 901) + 100;
+        int radonTotal = (int)(Math.random() * 901) + 100;
+        int radonActual = (int)(Math.random() * radonTotal);
 
-    int radonActual = (int)(Math.random() * radonTotal);
+        System.out.print(
+            "Mutación en proceso: ---------------------- "
+            + radonActual + " de " + radonTotal + " (mSv)"
+        );
+    }
 
-    System.out.print("Mutación en proceso: ---------------------- "
-            + radonActual + " de " + radonTotal + " (mSv)");
-}
-
-
-    private void mostrarCargaMutacion(String nombre, int tabs){
+    private void qmMostrarCargaMutacion(String nombre, int tabs){
 
         char[] signos = {'|', '/', '-', '\\'};
 
         for (int i = 0; i <= 100; i++) {
             int signoIndex = i % 4;
-
             String guiones = "-".repeat(tabs);
 
             System.out.print("\r" + signos[signoIndex] + " " + i + "% " + guiones + " " + nombre);
 
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }

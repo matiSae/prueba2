@@ -10,6 +10,6 @@ public class qmAgnathans extends qmGnathostomata {
 
     @Override
     public void qmMostrarJerarquia() {
-       qmMostrarCarga("Agnathans", 5);
+       qmMostrarCarga("Agnathans", 8);
     }
 }

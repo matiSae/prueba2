@@ -11,10 +11,24 @@ public class qmControllerSisInformatico {
     public void inicializar(){
 
         Scanner sc = new Scanner(System.in);
-
+        boolean salir=true;
+        String apellido;
         System.out.println("=== SISTEMA DE MUTACIÓN BIOLÓGICA ===");
-        System.out.print("Ingrese su apellido para la mutación: ");
-        String apellido = sc.nextLine();
+        do{
+            salir=false;
+            System.out.print("Ingrese su apellido para la mutación: ");
+            apellido = sc.nextLine();
+                salir = true;
+                for (int i = 0; i < apellido.length(); i++) {
+                    if (Character.isDigit(apellido.charAt(i))) {
+                        salir = false;
+                        break;
+                    }
+                }
+                if (!salir) {
+                    System.out.println("Error: no ingrese numeros ");
+                }
+        }while(!salir);
 
         qmTanqueMutacion tanque = new qmTanqueMutacion(apellido);
 
@@ -22,7 +36,6 @@ public class qmControllerSisInformatico {
         qmAgnathans agna = new qmAgnathans();
         qmHagfishes hag = new qmHagfishes();
 
-        System.out.println("\n--- JERARQUÍA ORIGINAL ---");
         gna.qmMostrarJerarquia();
         agna.qmMostrarJerarquia();
         hag.qmMostrarJerarquia();
@@ -33,16 +46,16 @@ public class qmControllerSisInformatico {
         String nuevaEspecie = tanque.qmMutar("Hagfishes");
 
         System.out.println("\n--- JERARQUÍA POST-MUTACIÓN ---");
-        
+        System.out.println();
         tanque.qmMenuProcesomSv();
         System.out.println();
         gna.qmMostrarJerarquia();
         agna.qmMostrarJerarquia();
         hag.qmMostrarJerarquia();
-        System.out.println();
 
         if(nuevaEspecie != null){
-            tanque.qmMostrarJerarquia(); 
+            tanque.qmMostrarJerarquia(nuevaEspecie); 
+            System.out.println();
             System.out.println("Nueva especie creada: " + nuevaEspecie);
         }
     }
