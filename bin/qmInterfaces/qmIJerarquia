@@ -1,0 +1,5 @@
+package src;
+
+public interface qmIJerarquia {
+    public void qmMostrarJerarquia(String qmNombreClase);
+}
